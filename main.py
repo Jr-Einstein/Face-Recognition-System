@@ -8,13 +8,13 @@ class Face_Recognition_System:
         self.root=root
         self.root.geometry("1530x790+0+0")
         self.root.title("VTOP Face Attendance System")
-        #college pic in header
+        #cblue bar pic in header
         img=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\collegepic.jpg")
         img=img.resize((1370,190),Image.ADAPTIVE)
         self.photoimg=ImageTk.PhotoImage(img)
         
         f_lbl=Label(self.root,image=self.photoimg)
-        f_lbl.place(x=0,y=0,width=1370,height=190)
+        f_lbl.place(x=0,y=0,width=1370,height=90)
         #logo image
         img1=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\logo.jpg")
         img1=img1.resize((155,90),Image.ADAPTIVE)
@@ -29,10 +29,13 @@ class Face_Recognition_System:
         self.photoimg2=ImageTk.PhotoImage(img2)
         
         f_lbl=Label(self.root,image=self.photoimg2)
-        f_lbl.place(x=0,y=190,width=1530,height=610)
+        f_lbl.place(x=0,y=90,width=1530,height=610)
         #title i am hiding it for now as i have text on image only
-        # title_lbl=Label(f_lbl,text="VIT BHOPAL FACE ATTEDANCE SYSTEM SOFTWARE",font=("times new roman",20,"bold"),bg="white",fg="dark blue")
-        # title_lbl.place(x=0,y=0,width=1530,height=45)
+        title_lbl=Label(f_lbl,text="VIT BHOPAL FACE ATTENDANCE SYSTEM               ",font=("times new roman",20,"bold"),bg="white",fg="dark blue")
+        title_lbl.place(x=0,y=0,width=1530,height=45)
+
+        title_lbl=Label(f_lbl,text="Crafted by a team of VIT students, our Face Attendance System unifies Faculty, Staff, Students, Parents, and Alumni on a single platform.                                        ",font=("times new roman",9,"bold"),bg="white",fg="black")
+        title_lbl.place(x=0,y=40,width=1530,height=45)
         
         # student button
         img3=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\student.jpg")
@@ -64,7 +67,7 @@ class Face_Recognition_System:
         b1=Button(f_lbl,image=self.photoimg5,cursor="hand2")
         b1.place(x=730,y=100,width=190,height=150)
         
-        b1_1=Button(f_lbl,text="Attedance",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
+        b1_1=Button(f_lbl,text="Attendance",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=730,y=250,width=190,height=40)
 
         # Help  button
@@ -79,7 +82,7 @@ class Face_Recognition_System:
         b1_1.place(x=1030,y=250,width=190,height=40)
 
         # Train Face  button
-        img7=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\help.jpg")
+        img7=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\traindata.jpg")
         img7=img7.resize((210,150),Image.ADAPTIVE)
         self.photoimg7=ImageTk.PhotoImage(img7)
         
