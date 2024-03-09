@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+from student import Student
 
 
 class Face_Recognition_System:
@@ -8,7 +9,7 @@ class Face_Recognition_System:
         self.root=root
         self.root.geometry("1530x790+0+0")
         self.root.title("VTOP Face Attendance System")
-        #cblue bar pic in header
+        #blue bar pic in header
         img=Image.open(r"C:\Users\amans\OneDrive\Desktop\face_recognition system\college_images\collegepic.jpg")
         img=img.resize((1370,190),Image.ADAPTIVE)
         self.photoimg=ImageTk.PhotoImage(img)
@@ -42,10 +43,10 @@ class Face_Recognition_System:
         img3=img3.resize((210,150),Image.ADAPTIVE)
         self.photoimg3=ImageTk.PhotoImage(img3)
         
-        b1=Button(f_lbl,image=self.photoimg3,cursor="hand2")
+        b1=Button(f_lbl,image=self.photoimg3,command=self.student_details,cursor="hand2")
         b1.place(x=130,y=100,width=190,height=150)
         
-        b1_1=Button(f_lbl,text="Student Details",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
+        b1_1=Button(f_lbl,text="Student Details",command=self.student_details,cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=130,y=250,width=190,height=40)
         
         # detect face button
@@ -124,9 +125,27 @@ class Face_Recognition_System:
         
         b1_1=Button(f_lbl,text="Exit",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=1030,y=450,width=190,height=40)
+        
+        
+        
+        
+    #    copyright
+    
+        title_lbl=Label(f_lbl,text="Copyright © 2024 Project Exhibition - II Team 34                                              ",font=("times new roman",9,"bold"),bg="white",fg="black")
+        title_lbl.place(x=410,y=560,width=670,height=45)
 
+    # =============Function Buttons==================
+    def student_details(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Student(self.new_window)   
+        
+        
+        
+        
+        
 
 if __name__=="__main__":
     root=Tk()
     obj=Face_Recognition_System(root)
-    root.mainloop()        
+    root.mainloop()     
+    
