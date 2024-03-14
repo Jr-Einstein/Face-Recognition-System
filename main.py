@@ -2,6 +2,10 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 from student import Student
+import os
+from train import Train
+from face_recognition import Face_Recognition
+
 
 
 class Face_Recognition_System:
@@ -54,10 +58,10 @@ class Face_Recognition_System:
         img4=img4.resize((210,150),Image.ADAPTIVE)
         self.photoimg4=ImageTk.PhotoImage(img4)
         
-        b1=Button(f_lbl,image=self.photoimg4,cursor="hand2")
+        b1=Button(f_lbl,image=self.photoimg4,cursor="hand2",command=self.face_data)
         b1.place(x=430,y=100,width=190,height=150)
         
-        b1_1=Button(f_lbl,text="Face Detector",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
+        b1_1=Button(f_lbl,text="Face Detector",command=self.face_data,cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=430,y=250,width=190,height=40)
         
         # Attedance  button
@@ -87,10 +91,10 @@ class Face_Recognition_System:
         img7=img7.resize((210,150),Image.ADAPTIVE)
         self.photoimg7=ImageTk.PhotoImage(img7)
         
-        b1=Button(f_lbl,image=self.photoimg7,cursor="hand2")
+        b1=Button(f_lbl,image=self.photoimg7,command=self.train_data,cursor="hand2")
         b1.place(x=130,y=310,width=190,height=150)
         
-        b1_1=Button(f_lbl,text="Train Data",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
+        b1_1=Button(f_lbl,text="Train Data",command=self.train_data,cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=130,y=450,width=190,height=40)
 
         # Photos button
@@ -98,10 +102,10 @@ class Face_Recognition_System:
         img8=img8.resize((210,150),Image.ADAPTIVE)
         self.photoimg8=ImageTk.PhotoImage(img8)
         
-        b1=Button(f_lbl,image=self.photoimg8,cursor="hand2")
+        b1=Button(f_lbl,image=self.photoimg8,cursor="hand2",command=self.open_img)
         b1.place(x=430,y=310,width=190,height=150)
         
-        b1_1=Button(f_lbl,text="Photos",cursor="hand2",font=("gineva",11,"bold"),bg="navy blue",fg="white")
+        b1_1=Button(f_lbl,text="Photos",cursor="hand2",command=self.open_img,font=("gineva",11,"bold"),bg="navy blue",fg="white")
         b1_1.place(x=430,y=450,width=190,height=40)
       
         # Developer Info button
@@ -133,11 +137,32 @@ class Face_Recognition_System:
     
         title_lbl=Label(f_lbl,text="Copyright © 2024 Project Exhibition - II Team 34                                              ",font=("times new roman",9,"bold"),bg="white",fg="black")
         title_lbl.place(x=410,y=560,width=670,height=45)
-
+        
+        
+        
+        
+    def open_img(self):
+        os.startfile("data")
+        
+        
+        
+        
+        
+        
+        
+        
     # =============Function Buttons==================
     def student_details(self):
         self.new_window=Toplevel(self.root)
         self.app=Student(self.new_window)   
+        
+    def train_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Train(self.new_window) 
+          
+    def face_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Face_Recognition(self.new_window) 
         
         
         
